@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,14 +14,29 @@ namespace TAProgramme.Pages
         public void NavigateToHomepage(IWebDriver driver)
         {
 
+            try
+            {
+                //Navigate to Time and Materials page
+                IWebElement administrationTab = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/a/span"));
+                administrationTab.Click();
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail(" Administration Tab not found" + ex.Message);
             
-            //Navigate to Time and Materials page
-            IWebElement administrationTab = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/a/span"));
-            administrationTab.Click();
+            }
 
-           
-            IWebElement timeAndMaterialOption = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/ul/li[3]/a"));
-            timeAndMaterialOption.Click();
+            try
+            {
+                IWebElement timeAndMaterialOption = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/ul/li[3]/a"));
+                timeAndMaterialOption.Click();
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail("Time and Materials page not found" +ex.Message); 
+            }
+
+                       
         }
     }
 }

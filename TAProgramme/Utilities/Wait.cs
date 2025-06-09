@@ -32,7 +32,7 @@ namespace TAProgramme.Utilities
             {
                 wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath(LocatorValue)));
             }
-            if (LocatorType == "Id") ;
+            if (LocatorType == "Id") 
             {
                 wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id(LocatorValue)));
             }
